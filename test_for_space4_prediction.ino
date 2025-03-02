@@ -40,7 +40,7 @@ void setup()
 
 #define servoStep 2
 double convertDegreeToRadians(int angleDegrees){
-    return angle * M_PI / 180;
+    return angleDegrees * M_PI / 180;
 }
 
 
