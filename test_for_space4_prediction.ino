@@ -116,7 +116,8 @@ void loop()
                 Coordinate predict;
                 predict.x_coord = newCoord.x_coord + (velo.x_velocity * predict_time);
                 predict.y_coord = newCoord.y_coord + (velo.y_velocity * predict_time);
-
+                magnitude = sqrt((predict.x_coord * predict.x_coord) + (predict.y_coord * predict.y_coord));
+                
                 Serial.print("Angle: ");
                 Serial.println(servoAngle);
                 Serial.print("Time: ");
@@ -125,14 +126,15 @@ void loop()
                 Serial.print(newCoord.x_coord);
                 Serial.print(", ");
                 Serial.println(newCoord.y_coord);                
-                Serial.println("Prediction(t,x,y): ");
-                Serial.println(newTime + predict_time);
+                Serial.println("Prediction(t,x,y,d): ");
+                Serial.print(newTime + predict_time);
                 Serial.print(", ");
-                Serial.println(predict.x_coord);
+                Serial.print(predict.x_coord);
                 Serial.print(", ");
-                Serial.println(predict.y_coord);
+                Serial.print(predict.y_coord);
+                Serial.print(", ");                
+                Serial.print(magnitude);
 
-                magnitude = sqrt((predict.x_coord * predict.x_coord) + (predict.y_coord * predict.y_coord));
                 prevCoord = newCoord;
                 notFound = false;
             }
