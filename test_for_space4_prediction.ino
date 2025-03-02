@@ -36,6 +36,7 @@ void setup()
     servoAngle = reset;
     delay(100);
     Serial.begin(9600);
+    Serial.println("Starting...");
 }
 
 #define servoStep 2
@@ -62,7 +63,7 @@ void loop()
     while (notFound)
     {
         distInCM = mySensor.distance();
-        if (distInCM <= 55 && distInCM >= 10)
+        if (distInCM <= 40 && distInCM >= 10)
         {
             // set initial coordinate
             prevCoord.y_coord = 0;
@@ -93,7 +94,7 @@ void loop()
         while (notFound)
         {
             distInCM = mySensor.distance();
-            if (distInCM <= 55 && distInCM >= 10)
+            if (distInCM <= 40 && distInCM >= 10)
             {
                 // set initial coordinate
                 newTime = millis();
