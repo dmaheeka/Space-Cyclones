@@ -134,7 +134,7 @@ void loop()
                 Serial.print(", ");
                 Serial.print(predict.y_coord);
                 Serial.print(", ");                
-                Serial.print(magnitude);
+                Serial.println(magnitude);
 
                 prevCoord = newCoord;
                 notFound = false;
