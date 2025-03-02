@@ -81,7 +81,7 @@ void loop()
             notFound = false;
         }
     }
-    while (servoAngle + servoStep < 180)
+    while (servoAngle + servoStep <= 180)
     {
         // new servo angle
         servoAngle += servoStep;
