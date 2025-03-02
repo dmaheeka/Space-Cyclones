@@ -65,8 +65,8 @@ void loop()
         if (distInCM <= 40 && distInCM >= 10)
         {
             // set initial coordinate
-            prevCoordinate.y_coord = 0;
-            prevCoordinate.x_coord = distInCM;
+            prevCoord.y_coord = 0;
+            prevCoord.x_coord = distInCM;
             prevTime = millis();
 
             Serial.print("Angle: ");
