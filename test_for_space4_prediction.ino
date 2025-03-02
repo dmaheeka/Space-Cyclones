@@ -62,7 +62,7 @@ void loop()
     while (notFound)
     {
         distInCM = mySensor.distance();
-        if (distInCM <= 40 && distInCM >= 10)
+        if (distInCM <= 55 && distInCM >= 10)
         {
             // set initial coordinate
             prevCoord.y_coord = 0;
