@@ -124,8 +124,9 @@ void loop()
                 int predict_time = ((newCoord.x_coord * tangent) - newCoord.y_coord) / (velo.y_velocity - (velo.x_velocity * tangent));
                 // location
                 Coordinate predict;
-                predict.x_coord = newCoord.x_coord + (velo.x_velocity * predict_time);
-                predict.y_coord = newCoord.y_coord + (velo.y_velocity * predict_time);
+                //changed from velo to avgVelo
+                predict.x_coord = newCoord.x_coord + (avgVelo.x_velocity * predict_time);
+                predict.y_coord = newCoord.y_coord + (avgVelo.y_velocity * predict_time);
                 magnitude = sqrt((predict.x_coord * predict.x_coord) + (predict.y_coord * predict.y_coord));
                 
                 Serial.print("Angle: ");
@@ -157,4 +158,6 @@ void loop()
         }
         /* code */
     }
+    Serial.print("Program Stopped: Ran out of angles");
+    while(true){}
 }
