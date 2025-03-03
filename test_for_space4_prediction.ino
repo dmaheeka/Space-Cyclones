@@ -11,6 +11,8 @@ SharpIR mySensor = SharpIR(IRsensor, model);
 
 #define PWMsig 3
 
+#define maxDist 40
+#define minDist 10
 struct Coordinate
 {
     double x_coord;
@@ -65,7 +67,7 @@ void loop()
     while (notFound)
     {
         distInCM = mySensor.distance();
-        if (distInCM <= 40 && distInCM >= 10)
+        if (distInCM <= maxDist && distInCM >= minDist)
         {
             // set initial coordinate
             prevCoord.y_coord = 0;
@@ -96,7 +98,7 @@ void loop()
         while (notFound)
         {
             distInCM = mySensor.distance();
-            if (distInCM <= 40 && distInCM >= 10)
+            if (distInCM <= maxDist && distInCM >= minDist)
             {
                 // set initial coordinate
                 newTime = millis();
@@ -150,7 +152,7 @@ void loop()
         }
 
         // end scan and reset if prediction puts next scan out of range
-        if(magnitude > 55){
+        if(magnitude > maxDist){
             Serial.print("Program Stopped: Object out of range");
             while(true){}
         }
