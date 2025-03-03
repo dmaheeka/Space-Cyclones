@@ -50,6 +50,10 @@ void loop()
     Coordinate prevCoord;
     Coordinate newCoord;
     Velocity velo;
+    Velocity avgVelo;
+    avgVelo.x_velocity = 0;
+    avgVelo.y_velocity = 0;
+    int count = 1;
     long prevTime;
     long newTime;
     // put your main code here, to run repeatedly:
@@ -102,7 +106,12 @@ void loop()
                 newCoord.y_coord = distInCM * sin(convertDegreeToRadians(servoAngle));
                 velo.x_velocity = (newCoord.x_coord - prevCoord.x_coord) / (newTime - prevTime);
                 velo.y_velocity = (newCoord.y_coord - prevCoord.y_coord) / (newTime - prevTime);
-        
+                // velocity everaging
+                avgVelo.x_velocity = ((avgVelo.x_velocity * count) + velo.x_velocity) / (count + 1);
+                avgVelo.y_velocity = ((avgVelo.y_velocity * count) + velo.y_velocity) / (count + 1);
+                count++;
+
+
                 // prediction
 
                 // time
