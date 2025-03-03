@@ -61,8 +61,6 @@ void loop()
     // Scanner is facing right
 
     // Detect an object
-    
-
     bool notFound = true;
     while (notFound)
     {
@@ -158,6 +156,6 @@ void loop()
         }
         /* code */
     }
-    Serial.print("Program Stopped: Ran out of angles");
+    Serial.print("Program Stopped: Ran out of servo angles");
     while(true){}
 }
