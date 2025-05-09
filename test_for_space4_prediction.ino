@@ -125,6 +125,8 @@ void loop()
                 // location
                 Coordinate predict;
                 //changed from velo to avgVelo
+                // https://www.desmos.com/calculator/egrmzchife
+                // Desmos visualization for the path prediction formulas
                 predict.x_coord = newCoord.x_coord + (avgVelo.x_velocity * predict_time);
                 predict.y_coord = newCoord.y_coord + (avgVelo.y_velocity * predict_time);
                 magnitude = sqrt((predict.x_coord * predict.x_coord) + (predict.y_coord * predict.y_coord));
